@@ -52,17 +52,17 @@ info:
     interfaces have done for lower-level programming, OpenAPI removes the
     guesswork in calling the service.
 externalDocs:
-  description: Find out how to create a GitHub repo for your OpenAPI definition.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
+  description: "Find out how to create a GitHub repo for your OpenAPI definition."
+  url: 'https://github.com/Redocly/create-openapi-repo'
 tags:
   - name: Echo
-    description: Example echo operations
+    description: "Example echo operations."
   - name: User
-    description: Operations about user
+    description: "Example actions on user accounts."
   - name: Admin
-    description: Operations reserved for administrators
+    description: "Example operations reserved for administrators."
   - name: Info
-    description: Operations that retrieve information
+    description: "Example operations for retrieving information."
 x-tagGroups:
   - name: General
     tags:
@@ -76,7 +76,7 @@ servers:
   - url: 'http://example.com/api/v1'
     description: Default server with HTTP
   - url: 'https://example.com/api/v1'
-    description: Server with HTTPS
+    description: Secure server with HTTPS
   - url: 'https://example.com/api/dev'
     description: Development server
 paths:
@@ -84,7 +84,7 @@ paths:
     $ref: 'paths/users@{username}.yaml'
   '/user':
     $ref: 'paths/user.yaml'
-  '/user/status':
+  '/user/list':
     $ref: 'paths/user-status.yaml'
   '/echo':
     $ref: 'paths/echo.yaml'
@@ -97,7 +97,7 @@ components:
         implicit:
           authorizationUrl: 'http://example.com/api/oauth/dialog'
           scopes:
-            'read:users': read users info
+            'read:users': read user info
             'write:users': modify or remove users
     api_key:
       description: "Example description text of the API key scheme."
@@ -110,8 +110,8 @@ components:
 x-webhooks:
   userInfo:
     post:
-      summary: New user
-      description: Information about a new user in the system
+      summary: New user webhook
+      description: "Information about a new user in the system."
       operationId: userInfo
       tags:
         - Info
@@ -122,4 +122,4 @@ x-webhooks:
               $ref: 'components/schemas/User.yaml'
       responses:
         '200':
-          description: "Information about a new user retrieved successfully."
+          description: "Successfully retrieved information about a new user."

@@ -42,10 +42,6 @@ components:
                 type: string
             token:
                 type: string
-        examples: 
-            type: 'bearer'
-            token: 'Ng.lptA31_976YYUhQH2v8jLjk4mAaOFg5ne104S3fHLzu_D6k3ghacu-wBcX0g'
-        
     Auth:
         type: object
         required:

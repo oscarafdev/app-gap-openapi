@@ -69,11 +69,30 @@ paths:
             summary: 'Obtener Usuario'
             operationId: getUser
             tags:
-                - user
-                - get
+                - Usuario
+            responses:
+                '200':
+                    description: 'Respuesta con el objeto Usuario'
+                    content:
+                        application/json:
+                            schema:
+                                $ref:
             
 components:
     schemas:
+        User:
+            type: object
+            properties:
+                id:
+                    type: integer
+                username:
+                    type: string
+                first_name:
+                    type: string
+                last_name:
+                    type: string
+                email:
+                    type: string
         AuthResponse:
             type: object
             required:

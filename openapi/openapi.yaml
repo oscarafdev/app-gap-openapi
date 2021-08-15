@@ -99,6 +99,10 @@ components:
                     type: string
                 email:
                     type: string
+                created_at:
+                    type: string
+                updated_at:
+                    type: string
         AuthResponse:
             type: object
             required:

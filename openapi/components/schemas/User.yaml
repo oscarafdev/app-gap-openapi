@@ -1,19 +1,17 @@
 type: object
 properties:
   username:
-    description: User supplied username
+    description: Nombre de Usuario
     type: string
     minLength: 4
-    example: John78
+    example: oscar.fernandez.1
   firstName:
-    description: User first name
+    description: Nombre
     type: string
     minLength: 1
-    example: John
+    example: Oscar
   lastName:
-    description: User last name
+    description: Apellido
     type: string
     minLength: 1
-    example: Smith
-  email:
-    $ref: ./Email.yaml
+    example: Fernandez

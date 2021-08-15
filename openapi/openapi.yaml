@@ -10,7 +10,7 @@ paths:
             summary: 'Login'
             operationId: loginUser
             tags:
-                - Login
+                - Auth
             requestBody:
                 description: 'Parametros recibidos'
                 content:
@@ -41,8 +41,7 @@ paths:
             summary: 'Registro'
             operationId: registerUser
             tags:
-                - auth
-                - register
+                - Auth
             requestBody: 
                 description: 'Se deben proveer los siguientes parametros'
                 content:

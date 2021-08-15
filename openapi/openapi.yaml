@@ -71,8 +71,8 @@ components:
                 message:
                     type: string
     securitySchemes:
-        BasicAuth:
+        bearerAuth:
             type: http
-            scheme: basic
+            scheme: bearer
 security:
-    - BasicAuth: []
+    - bearerAuth: []

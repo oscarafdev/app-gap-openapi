@@ -8,7 +8,7 @@ paths:
   /auth/login:
     post:
       summary: 'Obtiene un token autenticandose con email y clave'
-      operationId: listUser
+      operationId: loginUser
       tags:
         - user
       parameters:

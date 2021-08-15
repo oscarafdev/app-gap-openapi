@@ -12,7 +12,7 @@ paths:
             tags:
                 - Auth
             requestBody:
-                description: 'Parametros recibidos'
+                description: 'Se deberá enviar el email y contraseña'
                 content:
                     'application/json':
                         schema:

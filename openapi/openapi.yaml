@@ -5,7 +5,7 @@ info:
 servers:
   - url: 'https://appgap.itlabs.ar/v1'
 paths:
-  /user:
+  /auth:
     get:
       summary: 'Sample endpoint: Returns details about a particular user'
       operationId: listUser

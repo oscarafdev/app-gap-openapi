@@ -53,13 +53,10 @@ components:
             - password
         properties:
             email:
-            type: string
-            format: email
+                type: string
+                format: email
             password:
-            type: string
-        examples: 
-            email: 'admin@admin.com'
-            password: 'admin'
+                type: string
     Error:
       type: object
       required:

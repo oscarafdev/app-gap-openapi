@@ -76,7 +76,13 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref:
+                                $ref: '#/components/schemas/User'
+                            example:
+                                id: 1
+                                username: 'oscar.fernandez'
+                                first_name: 'Oscar'
+                                last_name: 'Fernandez'
+                                email: 'admin@admin.com'
             
 components:
     schemas:

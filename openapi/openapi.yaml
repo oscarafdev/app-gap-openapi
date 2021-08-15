@@ -44,7 +44,7 @@ components:
                 type: string
         examples: 
             type: 'bearer'
-            token: 'asdasd'
+            token: 'Ng.lptA31_976YYUhQH2v8jLjk4mAaOFg5ne104S3fHLzu_D6k3ghacu-wBcX0g'
         
     Auth:
         type: object

@@ -1,78 +1,78 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
-  title: AppGAP
+    version: 1.0.0
+    title: AppGAP
 servers:
-  - url: 'https://appgap.itlabs.ar/v1'
+    - url: 'https://appgap.itlabs.ar/v1'
 paths:
-  /auth/login:
-    post:
-      summary: 'Login'
-      operationId: loginUser
-      tags:
-        - auth
-      requestBody:
-        description: 'Parametros recibidos'
-        content:
-            'application/json':
-                schema:
-                    $ref: '#/components/schemas/Auth'
-                example:
-                    email: 'admin@admin.com'
-                    password: 'admin'
-      responses:
-        '200':
-            description: 'Respuesta con Bearer Token'
-            content:
-                application/json:
-                    schema:
-                        $ref: '#/components/schemas/AuthResponse'
-                    example: 
-                        type: 'bearer'
-                        token: 'OA.unwT0RbX5XsVmxqxuIlkLwXpS6NcOSyRmehhFj0qXTeO7ZHOvVra3ZQmjZqD'
-        default:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+    /auth/login:
+        post:
+            summary: 'Login'
+            operationId: loginUser
+            tags:
+                - auth
+            requestBody:
+                description: 'Parametros recibidos'
+                content:
+                    'application/json':
+                        schema:
+                            $ref: '#/components/schemas/Auth'
+                        example:
+                            email: 'admin@admin.com'
+                            password: 'admin'
+            responses:
+                '200':
+                    description: 'Respuesta con Bearer Token'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/AuthResponse'
+                            example: 
+                                type: 'bearer'
+                                token: 'OA.unwT0RbX5XsVmxqxuIlkLwXpS6NcOSyRmehhFj0qXTeO7ZHOvVra3ZQmjZqD'
+                default:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
 components:
-  schemas:
-    AuthResponse:
-        type: object
-        required:
-            - type
-            - token
-        properties: 
-            type:
-                type: string
-            token:
-                type: string
-    Auth:
-        type: object
-        required:
-            - email
-            - password
-        properties:
-            email:
-                type: string
-                format: email
-            password:
-                type: string
-    Error:
-      type: object
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
+    schemas:
+        AuthResponse:
+            type: object
+            required:
+                - type
+                - token
+            properties: 
+                type:
+                    type: string
+                token:
+                    type: string
+        Auth:
+            type: object
+            required:
+                - email
+                - password
+            properties:
+                email:
+                    type: string
+                    format: email
+                password:
+                    type: string
+        Error:
+            type: object
+            required:
+                - code
+                - message
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+    securitySchemes:
+        BasicAuth:
+            type: http
+            scheme: basic
 security:
-  - BasicAuth: []
+    - BasicAuth: []

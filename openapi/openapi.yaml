@@ -10,8 +10,7 @@ paths:
             summary: 'Login'
             operationId: loginUser
             tags:
-                - auth
-                - login
+                - Login
             requestBody:
                 description: 'Parametros recibidos'
                 content:
@@ -66,7 +65,14 @@ paths:
                             example: 
                                 type: 'bearer'
                                 token: 'OA.unwT0RbX5XsVmxqxuIlkLwXpS6NcOSyRmehhFj0qXTeO7ZHOvVra3ZQmjZqD'
-
+    /me:
+        get:
+            summary: 'Obtener Usuario'
+            operationId: getUser
+            tags:
+                - user
+                - get
+            
 components:
     schemas:
         AuthResponse:

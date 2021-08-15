@@ -17,6 +17,10 @@ paths:
             'application/json':
                 schema:
                     $ref: '#/components/schemas/Auth'
+                examples:
+                    Auth:
+                        email: 'admin@admin.com'
+                        password: 'admin'
       responses:
         '200':
           description: 'Respuesta con Bearer Token'

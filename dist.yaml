@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: AppGAP
+servers:
+  - url: 'https://appgap.itlabs.ar/v1'
+paths:
+  /auth/login:
+    post:
+      summary: Login
+      operationId: loginUser
+      tags:
+        - Auth
+      requestBody:
+        description: Se deberá enviar el email y contraseña
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthLogin'
+            example:
+              email: admin@admin.com
+              password: admin
+      responses:
+        '200':
+          description: Respuesta con Bearer Token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+              example:
+                type: bearer
+                token: >-
+                  OA.unwT0RbX5XsVmxqxuIlkLwXpS6NcOSyRmehhFj0qXTeO7ZHOvVra3ZQmjZqD
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /auth/register:
+    post:
+      summary: Registro
+      operationId: registerUser
+      tags:
+        - Auth
+      requestBody:
+        description: Se deben proveer los siguientes parametros
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRegister'
+            example:
+              first_name: Oscar
+              last_name: Fernandez
+              email: admin@admin.com
+              password: admin
+              password_confirmation: admin
+      responses:
+        '200':
+          description: Respuesta con Bearer Token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+              example:
+                type: bearer
+                token: >-
+                  OA.unwT0RbX5XsVmxqxuIlkLwXpS6NcOSyRmehhFj0qXTeO7ZHOvVra3ZQmjZqD
+  /me:
+    get:
+      summary: Obtener Usuario
+      operationId: getUser
+      tags:
+        - Usuario
+      responses:
+        '200':
+          description: Respuesta con el objeto Usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              example:
+                id: 1
+                username: oscar.fernandez
+                first_name: Oscar
+                last_name: Fernandez
+                email: admin@admin.com
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+    AuthResponse:
+      type: object
+      required:
+        - type
+        - token
+      properties:
+        type:
+          type: string
+        token:
+          type: string
+    AuthLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+    AuthRegister:
+      type: object
+      required:
+        - first_name
+        - last_name
+        - email
+        - password
+        - password_confirmation
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []

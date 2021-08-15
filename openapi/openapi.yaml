@@ -10,15 +10,17 @@ paths:
       summary: 'Obtiene un token autenticandose con email y clave'
       operationId: loginUser
       tags:
-        - user
-      parameters:
-        - name: id
-          in: query
-          description: ID of the user
-          required: true
-          schema:
-            type: integer
-            format: int32
+        - auth
+      requestBody:
+        description: 'Parametros recibidos'
+        content:
+            'application/json':
+                schema:
+                    $ref: '#/components/schemas/Auth'
+                examples:
+                    auth:
+                        email: 'admin@admin.com'
+                        password: 'admin'
       responses:
         '200':
           description: 'Sample response: Details about a user by ID'
@@ -39,18 +41,16 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    User:
+    Auth:
       type: object
       required:
-        - id
-        - name
+        - email
+        - password
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
+        email:
           type: string
-        tag:
+          format: email
+        password:
           type: string
     Error:
       type: object

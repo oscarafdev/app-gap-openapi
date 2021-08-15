@@ -22,11 +22,14 @@ paths:
                     password: 'admin'
       responses:
         '200':
-          description: 'Respuesta con Bearer Token'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AuthResponse'
+            description: 'Respuesta con Bearer Token'
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/AuthResponse'
+                    example: 
+                        type: 'bearer'
+                        token: 'OA.unwT0RbX5XsVmxqxuIlkLwXpS6NcOSyRmehhFj0qXTeO7ZHOvVra3ZQmjZqD'
         default:
           description: Unexpected error
           content:

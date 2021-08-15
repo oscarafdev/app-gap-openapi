@@ -7,7 +7,7 @@ servers:
 paths:
   /auth/login:
     post:
-      summary: 'Sample endpoint: Returns details about a particular user'
+      summary: 'Obtiene un token autenticandose con email y clave'
       operationId: listUser
       tags:
         - user

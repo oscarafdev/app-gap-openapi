@@ -17,22 +17,13 @@ paths:
             'application/json':
                 schema:
                     $ref: '#/components/schemas/Auth'
-                examples:
-                    auth:
-                        email: 'admin@admin.com'
-                        password: 'admin'
       responses:
         '200':
-          description: 'Sample response: Details about a user by ID'
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
+          description: 'Respuesta con Bearer Token'
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthResponse'
         default:
           description: Unexpected error
           content:
@@ -41,17 +32,34 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    AuthResponse:
+        type: object
+        required:
+            - type
+            - token
+        properties: 
+            type:
+                type: string
+            token:
+                type: string
+        examples: 
+            type: 'bearer'
+            token: 'asdasd'
+        
     Auth:
-      type: object
-      required:
-        - email
-        - password
-      properties:
-        email:
-          type: string
-          format: email
-        password:
-          type: string
+        type: object
+        required:
+            - email
+            - password
+        properties:
+            email:
+            type: string
+            format: email
+            password:
+            type: string
+        examples: 
+            email: 'admin@admin.com'
+            password: 'admin'
     Error:
       type: object
       required:

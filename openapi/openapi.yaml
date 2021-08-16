@@ -105,10 +105,20 @@ paths:
                             example:
                                 - id: 1
                                   name: 'Project Manager'
+                                  supervisor_id: null
+                                  supervisor: null
                                   created_at: '2021-08-15T12:30:36.000-03:00'
                                   updated_at: '2021-08-15T12:30:36.000-03:00'
                                 - id: 2
                                   name: 'Developer'
+                                  supervisor_id: 1
+                                  supervisor:
+                                    id: 1
+                                    name: 'Project Manager'
+                                    supervisor_id: null
+                                    supervisor: null
+                                    created_at: '2021-08-15T12:30:36.000-03:00'
+                                    updated_at: '2021-08-15T12:30:36.000-03:00'
                                   created_at: '2021-08-15T12:30:36.000-03:00'
                                   updated_at: '2021-08-15T12:30:36.000-03:00'
 components:
@@ -120,6 +130,11 @@ components:
                     type: integer
                 name:
                     type: string
+                supervisor_id:
+                    type: integer
+                supervisor:
+                    type: object
+                    $ref: '#/components/schemas/Role'
                 created_at:
                     type: string
                 updated_at:

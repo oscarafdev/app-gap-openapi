@@ -85,6 +85,14 @@ paths:
                                 first_name: 'Oscar'
                                 last_name: 'Fernandez'
                                 email: 'admin@admin.com'
+                                role_id: 1
+                                role:
+                                    id: 1
+                                    name: 'Project Manager'
+                                    supervisor_id: null
+                                    supervisor: null
+                                    created_at: '2021-08-15T12:30:36.000-03:00'
+                                    updated_at: '2021-08-15T12:30:36.000-03:00'
                                 created_at: '2021-08-15T12:30:36.000-03:00'
                                 updated_at: '2021-08-15T12:30:36.000-03:00'
     /roles: 
@@ -156,6 +164,11 @@ components:
                     type: string
                 email:
                     type: string
+                role_id:
+                    type: integer
+                role:
+                    type: object
+                    $ref: '#/components/schemas/Role'
                 created_at:
                     type: string
                 updated_at:

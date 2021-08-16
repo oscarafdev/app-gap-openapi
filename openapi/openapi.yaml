@@ -113,6 +113,17 @@ paths:
                                   updated_at: '2021-08-15T12:30:36.000-03:00'
 components:
     schemas:
+        Role:
+            type: object
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                created_at:
+                    type: string
+                updated_at:
+                    type: string
         Roles:
             type: array
             items:

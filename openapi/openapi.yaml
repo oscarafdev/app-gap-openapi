@@ -127,16 +127,7 @@ components:
         Roles:
             type: array
             items:
-                type: object
-                properties:
-                    id:
-                        type: integer
-                    name:
-                        type: string
-                    created_at:
-                        type: string
-                    updated_at:
-                        type: string
+                $ref: '#/components/schemas/Role'
         User:
             type: object
             properties:

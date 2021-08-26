@@ -56,7 +56,7 @@ paths:
                             password_confirmation: 'admin'
             responses:
                 '200':
-                    description: 'Respuesta con Bearer Token'
+                    description: 'Respuesta con Bearer Tokens'
                     content:
                         application/json:
                             schema:

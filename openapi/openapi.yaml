@@ -19,7 +19,7 @@ paths:
                             $ref: '#/components/schemas/AuthLogin'
                         example:
                             email: 'admin@admin.com'
-                            password: 'admin'
+                            password: 'administrador'
             responses:
                 '200':
                     description: 'Respuesta con Bearer Token'
